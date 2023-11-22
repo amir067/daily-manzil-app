@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_read"
+            android:icon="@drawable/baseline_notes_24"
+            android:iconTint="@color/black"
+            android:title="@string/menu_read" />
+        <item
+            android:id="@+id/nav_listen"
+            android:icon="@drawable/baseline_audiotrack_24"
+            android:iconTint="@color/black"
+            android:title="@string/menu_listen" />
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@drawable/ic_info_outline_white_24dp"
+            android:iconTint="@color/black"
+            android:title="@string/menu_about_us" />
+    </group>
+</menu>
