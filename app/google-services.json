@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1079301456951",
+    "project_id": "daily-manzil-app-2b1c8",
+    "storage_bucket": "daily-manzil-app-2b1c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079301456951:android:bf1c1013cf2eaa49296bb2",
+        "android_client_info": {
+          "package_name": "com.appverse.daily.manzil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCgLowLy8z03GKezjXGpw722BrHBkNjYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

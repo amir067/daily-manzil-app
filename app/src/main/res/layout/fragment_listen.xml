@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.aboutus.AboutUsFragment">
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/bg_listen"
+        android:scaleType="centerCrop"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMusicType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <com.arges.sepan.argmusicplayer.PlayerViews.ArgPlayerLargeView
+            android:id="@+id/argmusicplayer"
+            android:layout_below="@+id/tvMusicType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+        </com.arges.sepan.argmusicplayer.PlayerViews.ArgPlayerLargeView>
+    </RelativeLayout>
+
+</FrameLayout>

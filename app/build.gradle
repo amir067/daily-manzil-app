@@ -1,0 +1,118 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+}
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'// Google services Gradle plugin
+apply plugin: 'com.google.firebase.crashlytics'//Crashlytics Gradle plugin
+
+android {
+    namespace 'com.appverse.daily.manzil'
+    compileSdk 34
+
+    signingConfigs {
+        debug {
+//            def keystorePropertiesFile = rootProject.file("app/src/debug/keystore.properties")
+            def keystorePropertiesFile = rootProject.file("app/src/release/keystore.properties")
+
+            def keystoreProperties = new Properties()
+            keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+
+        release {
+            def keystorePropertiesFile = rootProject.file("app/src/release/keystore.properties")
+            def keystoreProperties = new Properties()
+            keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.appverse.daily.manzil"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        signingConfig signingConfigs.release
+    }
+    ext {
+        appCompatVersion = '1.0.0'
+        designSupportVersion = '1.0.0'
+        recyclerViewVersion = '1.0.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    aaptOptions {
+        cruncherEnabled = false
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.5'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation "androidx.viewpager:viewpager:1.0.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    //Custom Toast
+    implementation 'com.github.GrenderG:Toasty:1.5.0'
+
+    //noinspection GradleDependency
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.3.1')
+    implementation 'com.google.firebase:firebase-crashlytics'
+
+    //Circle image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'com.github.afreakyelf:Pdf-Viewer:v1.0.7'
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    //implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+
+    implementation 'com.github.mergehez:ArgPlayer:v3.1'
+}
